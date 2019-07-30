@@ -16,19 +16,18 @@ public class TimePeriod {
             return true;
         }
         // testBcontainsA()
-
         if ((this.start.after(period.start))
             && (this.end.before(period.end))) {
             return true;
         }
         // testBinteractA()
         if ((this.start.after(period.start))
-            && (this.end.after(period.end))) {
+            && (this.end.after(period.end))&& isEndInBetwineBeginingAndEndOfBInterA(period)) {
             return true;
         }
         // testAinteractB()
         if ((this.start.before(period.start))
-            && (this.end.before(period.end))) {
+            && (this.end.before(period.end))&& isEndBetwineBeginingAndEndOfAInterB(period)) {
             return true;
         }
         // testAequalsB()
@@ -40,8 +39,18 @@ public class TimePeriod {
         if (this.end.equals(period.start)) {
             return true;
         }
-
         return false;
     }
 
+  private boolean isEndInBetwineBeginingAndEndOfBInterA(TimePeriod timePeriod){
+        return timePeriod.end.after(this.start)&&timePeriod.end.before(this.end);
+    }
+
+    private boolean isEndBetwineBeginingAndEndOfAInterB(TimePeriod timePeriod){
+        return this.end.after(timePeriod.start)&&this.end.before(timePeriod.end);
+    }
+
+
+
 }
+
