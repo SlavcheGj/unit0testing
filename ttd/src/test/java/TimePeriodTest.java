@@ -27,17 +27,19 @@ public class TimePeriodTest {
         Assert.assertFalse(testA.overlapsWith(testB));
 
     }
+
     @Test
     public void testAcontainsB() throws ParseException {
         SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
-        TimePeriod testB= new TimePeriod(smp.parse("01/06/2019"),smp.parse("04/07/2019"));
+        TimePeriod testB = new TimePeriod(smp.parse("01/06/2019"), smp.parse("04/07/2019"));
         Assert.assertTrue(testA.overlapsWith(testB));
 
     }
+
     @Test
     public void testBcontainsA() throws ParseException {
         SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
-        TimePeriod testB= new TimePeriod(smp.parse("11/06/2019"),smp.parse("03/08/2019"));
+        TimePeriod testB = new TimePeriod(smp.parse("11/06/2019"), smp.parse("03/08/2019"));
         Assert.assertTrue(testA.overlapsWith(testB));
 
     }
@@ -45,7 +47,7 @@ public class TimePeriodTest {
     @Test
     public void testBinteractA() throws ParseException {
         SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
-        TimePeriod testB= new TimePeriod(smp.parse("29/03/2019"),smp.parse("04/07/2019"));
+        TimePeriod testB = new TimePeriod(smp.parse("29/03/2019"), smp.parse("04/07/2019"));
         Assert.assertTrue(testA.overlapsWith(testB));
 
     }
@@ -53,7 +55,7 @@ public class TimePeriodTest {
     @Test
     public void testAinteractB() throws ParseException {
         SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
-        TimePeriod testB= new TimePeriod(smp.parse("29/04/2019"),smp.parse("04/09/2019"));
+        TimePeriod testB = new TimePeriod(smp.parse("29/04/2019"), smp.parse("04/09/2019"));
         Assert.assertTrue(testA.overlapsWith(testB));
 
     }
@@ -61,7 +63,7 @@ public class TimePeriodTest {
     @Test
     public void testAequalsB() throws ParseException {
         SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
-        TimePeriod testB= new TimePeriod(smp.parse("09/04/2019"),smp.parse("09/08/2019"));
+        TimePeriod testB = new TimePeriod(smp.parse("09/04/2019"), smp.parse("09/08/2019"));
         Assert.assertTrue(testA.overlapsWith(testB));
 
     }
@@ -69,8 +71,8 @@ public class TimePeriodTest {
     @Test
     public void testAendEqualToBstart() throws ParseException {
         SimpleDateFormat smp = new SimpleDateFormat("dd/MM/yyyy");
-        TimePeriod testA = new TimePeriod(smp.parse("09/04/2019"),smp.parse("09/08/2018"));
-        TimePeriod testB= new TimePeriod(smp.parse("09/08/2018"),smp.parse("23/11/2018"));
+        TimePeriod testA = new TimePeriod(smp.parse("09/04/2019"), smp.parse("09/08/2018"));
+        TimePeriod testB = new TimePeriod(smp.parse("09/08/2018"), smp.parse("23/11/2018"));
         Assert.assertTrue(testA.overlapsWith(testB));
     }
 }
